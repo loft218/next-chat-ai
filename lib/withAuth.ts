@@ -3,7 +3,9 @@ import { GetServerSideProps } from "next";
 import { Session } from "next-auth";
 import { getServerSession } from "next-auth/next";
 
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "./utils/nextAuth";
+
+
 
 type CustomIncomingMessage = IncomingMessage & {
   session?: Session | null;
