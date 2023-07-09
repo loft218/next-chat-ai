@@ -1,8 +1,28 @@
-@tailwind base;
-@tailwind components;
+/* @tailwind base;
+@tailwind components; */
 @tailwind utilities;
 
-:root {
+.gpt-subtitle {
+  --un-gradient-from-position: 0%;
+  --un-gradient-from: rgba(56, 189, 248, var(--un-from-opacity, 1))
+    var(--un-gradient-from-position);
+  --un-gradient-to: rgba(56, 189, 248, 0) var(--un-gradient-to-position);
+  --un-gradient-stops: var(--un-gradient-from), var(--un-gradient-to);
+  --un-gradient-to-position: 100%;
+  --un-gradient-to: rgba(5, 150, 105, var(--un-to-opacity, 1))
+    var(--un-gradient-to-position);
+  --un-gradient-shape: to right;
+  --un-gradient: var(--un-gradient-shape), var(--un-gradient-stops);
+  background-image: linear-gradient(var(--un-gradient));
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 800;
+  color: transparent;
+}
+
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -24,4 +44,4 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-}
+} */
