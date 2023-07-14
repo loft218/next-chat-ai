@@ -3,30 +3,29 @@ import { Configuration, OpenAIApi } from "openai-edge";
 
 import { OPENAI_API_MODEL } from "@/lib/utils/openAI";
 
+// Set the runtime to edge for best performance
+export const runtime = "edge";
+
 // Create an OpenAI API client (that's edge friendly!)
 const config = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
+  basePath: process.env.OPENAI_BASE_PATH,
 });
 
 const openai = new OpenAIApi(config);
 
-// Set the runtime to edge for best performance
-export const runtime = "edge";
-
 export async function POST(req: Request) {
-  const { prompt } = await req.json();
+  const { messages } = await req.json();
 
-  // Ask OpenAI for a streaming completion given the prompt
-  const response = await openai.createCompletion({
+  const res = await openai.createChatCompletion({
     model: OPENAI_API_MODEL,
+    messages,
+    temperature: 0.7,
     stream: true,
-    temperature: 0.6,
-    prompt: `Please answer the question briefly and clearly in the language the user asked the question.
-      ${prompt}`,
   });
 
   // Convert the response into a friendly text-stream
-  const stream = OpenAIStream(response);
+  const stream = OpenAIStream(res);
   // Respond with the stream
   return new StreamingTextResponse(stream);
 }

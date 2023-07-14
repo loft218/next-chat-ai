@@ -5,8 +5,8 @@ export default function Logo({
   width?: string;
   height?: string;
 }) {
-  width = width || "100px";
-  height = height || "100px";
+  width = width || "88px";
+  height = height || "88px";
   return (
     <svg
       width={width}

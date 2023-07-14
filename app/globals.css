@@ -1,47 +1,24 @@
-/* @tailwind base;
-@tailwind components; */
+@tailwind base;
+@tailwind components;
 @tailwind utilities;
 
-.gpt-subtitle {
-  --un-gradient-from-position: 0%;
-  --un-gradient-from: rgba(56, 189, 248, var(--un-from-opacity, 1))
-    var(--un-gradient-from-position);
-  --un-gradient-to: rgba(56, 189, 248, 0) var(--un-gradient-to-position);
-  --un-gradient-stops: var(--un-gradient-from), var(--un-gradient-to);
-  --un-gradient-to-position: 100%;
-  --un-gradient-to: rgba(5, 150, 105, var(--un-to-opacity, 1))
-    var(--un-gradient-to-position);
-  --un-gradient-shape: to right;
-  --un-gradient: var(--un-gradient-shape), var(--un-gradient-stops);
-  background-image: linear-gradient(var(--un-gradient));
-  -webkit-background-clip: text;
-  background-clip: text;
-  font-size: 1.5rem;
-  line-height: 2rem;
-  font-weight: 800;
-  color: transparent;
+:root {
+  --c-bg: #fbfbfb;
+  --c-fg: #444444;
+  --c-scroll: #d9d9d9;
+  --c-scroll-hover: #bbbbbb;
+  scrollbar-color: var(--c-scrollbar) var(--c-bg);
 }
 
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+html {
+  font-family: system-ui, sans-serif;
+  background-color: var(--c-bg);
+  color: var(--c-fg);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+html.dark {
+  --c-bg: #212129;
+  --c-fg: #ddddf0;
+  --c-scroll: #333333;
+  --c-scroll-hover: #555555;
 }
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-} */

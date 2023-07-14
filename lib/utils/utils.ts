@@ -1,3 +1,5 @@
+import cuid from "cuid";
+
 export type RandomStringOptions = "digits" | "letters" | "digits+letters";
 
 export function generateRandomString(
@@ -20,3 +22,5 @@ export function generateRandomString(
 
   return result;
 }
+
+export { cuid };
