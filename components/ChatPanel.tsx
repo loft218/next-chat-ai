@@ -3,7 +3,6 @@ import { type UseChatHelpers } from "ai/react";
 import IconRefresh from "./icons/Refresh";
 import { ChatList } from "./ChatList";
 import PromptForm from "./PromptForm";
-import { IconCopy } from "./icons/Copy";
 
 export interface ChatPanelProps
   extends Pick<

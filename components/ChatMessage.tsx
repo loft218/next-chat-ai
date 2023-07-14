@@ -2,7 +2,6 @@ import { Message } from "ai";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 
-import IconRefresh from "./icons/Refresh";
 import { ChatMessageActions } from "./ChatMessageActions";
 import { MemoizedReactMarkdown } from "./Markdown";
 
