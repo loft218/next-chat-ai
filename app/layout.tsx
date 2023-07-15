@@ -16,13 +16,13 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html className="">
+    <html>
       <body
         className="font-sans antialiased,
           fontSans.variable,
           fontMono.variable"
       >
-        <main className=" bg-light text-black dark:bg-dark dark:text-white">
+        <main className="bg-light text-black dark:bg-dark dark:text-white">
           {children}
         </main>
       </body>

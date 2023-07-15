@@ -2,6 +2,7 @@
 
 import { UseChatHelpers } from "ai/react";
 import React, { useRef } from "react";
+import TextareaAutosize from "react-textarea-autosize";
 
 import IconSend from "@/components/icons/Send";
 import { useEnterSubmit } from "@/lib/hooks/useEnterSubmit";
@@ -22,12 +23,6 @@ export default function PromptForm({
 }: PromptProps) {
   const { formRef, onKeyDown } = useEnterSubmit();
   const inputRef = useRef<HTMLTextAreaElement | null>(null);
-
-  React.useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, []);
 
   return (
     <form
@@ -54,7 +49,7 @@ export default function PromptForm({
         </div>
       ) : (
         <div className="flex justify-center gap-2">
-          <textarea
+          <TextareaAutosize
             ref={inputRef}
             value={input}
             onKeyDown={onKeyDown}
@@ -62,6 +57,7 @@ export default function PromptForm({
             spellCheck={false}
             placeholder="输入点什么..."
             rows={1}
+            maxRows={5}
             tabIndex={0}
             autoComplete="off"
             className="w-full p-3 rounded-sm bg-slate-300 bg-opacity-20 placeholder-opacity-50 resize-none scroll-p-2 focus:outline-none focus:bg-opacity-30"
