@@ -1,6 +1,6 @@
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { AuthOptions } from "next-auth";
-import { JWT } from "next-auth/jwt";
+import NextAuth from "next-auth/next";
 import EmailProvider from "next-auth/providers/email";
 
 import customVerificationRequest from "@/lib/customVerificationRequest";
@@ -19,24 +19,6 @@ export const authOptions = {
       sendVerificationRequest: customVerificationRequest,
     }),
   ],
-  jwt: {
-    async encode(params: {
-      token: JWT;
-      secret: string;
-      maxAge: number;
-    }): Promise<string> {
-      console.log(params);
-      // return a custom encoded JWT string
-      return "123";
-    },
-    async decode(params: {
-      token: string;
-      secret: string;
-    }): Promise<JWT | null> {
-      // return a `JWT` object, or `null` if decoding failed
-      return {};
-    },
-  },
   callbacks: {
     // see https://next-auth.js.org/configuration/callbacks
   },
@@ -44,3 +26,7 @@ export const authOptions = {
     signIn: "/sign-in",
   },
 } as AuthOptions;
+
+const handler = NextAuth(authOptions);
+
+export { handler as GET, handler as POST };

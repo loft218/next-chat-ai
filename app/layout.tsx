@@ -22,7 +22,7 @@ export default async function RootLayout({
           fontSans.variable,
           fontMono.variable"
       >
-        <main className="bg-light text-black dark:bg-dark dark:text-white">
+        <main className="max-w-2xl mx-auto bg-light text-black dark:bg-dark dark:text-white">
           {children}
         </main>
       </body>
